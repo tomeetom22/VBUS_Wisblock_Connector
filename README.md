@@ -1,14 +1,14 @@
-# SPI_breakout KiCad Projects
+# VBUS WisBlock Connector KiCad Projects
 
 This repository contains KiCad PCB projects for VBUS board work. The active
-project is `SPI_breakout/`; `SensorBoard_v1.5/` is kept in the repo as a
-working reference design.
+project is `SPI_breakout/`; `SensorBoard_v1.5/` is kept as a routed reference
+design.
 
 ## Projects
 
 | Directory | Purpose | Current state |
 | --- | --- | --- |
-| `SPI_breakout/` | Breakout board for bringing SPI signals from a 40-pin connector to an Adafruit microSD breakout footprint. | Schematic and local custom library are started; PCB file is present but effectively empty. |
+| `SPI_breakout/` | WisBlock SPI breakout for an Adafruit 4682 microSD reader and two AlphaSense OPC-N3 particle counters. | Schematic updated and first-pass compact 2-layer PCB layout routed. |
 | `SensorBoard_v1.5/` | Existing sensor board design used as a layout/manufacturing reference. | Completed KiCad project with routed PCB and generated Gerbers. |
 
 ## SPI_breakout Overview
@@ -16,88 +16,98 @@ working reference design.
 `SPI_breakout` is a KiCad 10 project using local project libraries under
 `SPI_breakout/MyParts.pretty/`.
 
-Main schematic parts:
+The board connects the WisBlock 40-pin IO connector to:
 
-| Ref | Symbol | Footprint |
+- One Adafruit 4682 microSD breakout on the shared SPI bus.
+- Two AlphaSense OPC-N3 sensors on the same SPI bus.
+- A separate external 5 V input for the OPC-N3 sensors.
+
+The current PCB is a compact first-pass layout:
+
+- 2 copper layers.
+- Board outline: `35 mm x 45 mm`.
+- RAK WisBlock IO template connector and mounting-hole locations retained.
+- Both OPC 6-position terminal blocks placed inside the original `35 mm x 25 mm`
+  RAK template boundary.
+- microSD breakout rotated and placed just below the template area.
+
+## Main Parts
+
+See [PARTS.md](PARTS.md) for the current parts list.
+
+| Ref | Function | Symbol | Footprint |
+| --- | --- | --- | --- |
+| `U1` | WisBlock 40-pin IO connector | `MyParts:M40S1003K6M` | `MyParts:TXGA_FBB04004-F40S1003K6M` |
+| `U2` | Adafruit 4682 microSD breakout | `MyParts:Adafruit_MicroSD` | `MyParts:Adafruit4682` |
+| `J1` | OPC-N3 A terminal | `MyParts:AlphaSense_OPC_N3` | `Connector_Phoenix_MC:PhoenixContact_MC_1,5_6-G-3.81_1x06_P3.81mm_Horizontal` |
+| `J2` | OPC-N3 B terminal | `MyParts:AlphaSense_OPC_N3` | `Connector_Phoenix_MC:PhoenixContact_MC_1,5_6-G-3.81_1x06_P3.81mm_Horizontal` |
+| `J3` | External OPC 5 V input | `MyParts:External_5V_Input` | `Connector_Phoenix_MC:PhoenixContact_MC_1,5_2-G-3.81_1x02_P3.81mm_Horizontal` |
+
+## SPI and Power Mapping
+
+| Net | Connected devices |
+| --- | --- |
+| `/SPI_CLK` | `U1.26`, `U2.3`, `J1.6`, `J2.6` |
+| `/SPI_MISO` | `U1.27`, `U2.4`, `J1.5`, `J2.5` |
+| `/SPI_MOSI` | `U1.28`, `U2.5`, `J1.4`, `J2.4` |
+| `/SD_CS` | `U1.25`, `U2.6` |
+| `/OPC1_CS` | `U1.29` / WisBlock `IO1`, `J1.3` |
+| `/OPC2_CS` | `U1.31` / WisBlock `IO3`, `J2.3` |
+| `Net-(U2-3v3)` | `U1.18`, `U2.1` |
+| `/OPC_5V_EXT` | `J3.1`, `J1.2`, `J2.2` |
+| `/GND` | WisBlock GND, microSD GND, both OPC GND terminals, external 5 V return |
+
+OPC terminal pin order follows `VBUS_Comms/OPC_Wiring.txt`:
+
+| Terminal pin | OPC wire | Signal |
 | --- | --- | --- |
-| `U1` | `MyParts:M40S1003K6M` | `MyParts:TXGA_FBB04004-F40S1003K6M` |
-| `U2` | `MyParts:Adafruit_MicroSD` | `MyParts:Adafruit4682` |
+| 1 | Black | GND |
+| 2 | Red | External 5 V |
+| 3 | Green | SS / chip select |
+| 4 | Blue | SDI / MOSI |
+| 5 | White | SDO / MISO |
+| 6 | Yellow | SCK |
 
-Relevant 40-pin connector signals from the custom symbol:
+## Voltage Notes
 
-| Connector pin | Signal |
-| --- | --- |
-| 25 | `SPI_CS` |
-| 26 | `SPI_CLK` |
-| 27 | `SPI_MISO` |
-| 28 | `SPI_MOSI` |
-| 3, 4, 39, 40 | `GND` |
-| 5, 17, 18 | `3v3` |
-| 6 | `3v3_S` |
+- Adafruit 4682 is powered from WisBlock 3.3 V.
+- OPC-N3 sensor power is supplied from the separate 5 V input at `J3`; it is not
+  tied to WisBlock 3.3 V.
+- The SPI logic is currently routed directly to WisBlock 3.3 V logic. Before
+  fabrication, confirm the exact OPC-N3 cable/adapter electrical interface does
+  not drive SPI lines at 5 V.
 
-Adafruit microSD breakout pins in the custom symbol:
+## Validation Notes
 
-| Pin | Signal |
-| --- | --- |
-| 1 | `3v3` |
-| 2 | `GND` |
-| 3 | `CLK` |
-| 4 | `D0_SO` |
-| 5 | `D1_CMD` |
-| 6 | `CS` |
-| 7 | `DAT1` |
-| 8 | `DAT2` |
-| 9 | `DET` |
+The compact PCB layout has been checked with a local geometry audit for:
 
-Before fabrication, confirm the schematic wiring for `CS`, `CLK`, `MISO`, and
-`MOSI` against the target module pinout, then update the PCB from the schematic,
-place footprints, route the board, and run DRC/ERC.
+- Trace-to-pad conflicts.
+- Trace-to-trace conflicts.
+- Via-to-pad and via-to-trace conflicts.
+- Continuity on the routed non-GND nets.
 
-## Reference Design
-
-Use `SensorBoard_v1.5/` as the reference for:
-
-- Basic KiCad project organization.
-- Board outline and mechanical-layout style.
-- Connector labeling conventions on silkscreen.
-- Gerber/drill output structure under `SensorBoard_v1.5/SensorBoard_v1.4_gerber/`.
-- Manufacturer-ready output packaged as `SensorBoard_v1.5/SensorBoard_v1.5_gerber.zip`.
-
-The reference board appears to use JST SH headers, Phoenix terminal blocks, M2
-mounting holes, two copper layers, silkscreen pin labels, and generated Gerber
-outputs.
+KiCad Gerber export and 3D render both succeed. On this machine,
+`kicad-cli pcb drc` exits without producing a useful report, so run DRC inside
+the KiCad GUI before manufacturing.
 
 ## Opening the Projects
 
 1. Open the desired `.kicad_pro` file in KiCad:
    - `SPI_breakout/SPI_breakout.kicad_pro`
    - `SensorBoard_v1.5/SensorBoard_v1.5.kicad_pro`
-2. For `SPI_breakout`, keep the project-relative library path intact:
+2. For `SPI_breakout`, keep the project-relative library paths intact:
    - `SPI_breakout/fp-lib-table`
+   - `SPI_breakout/sym-lib-table`
    - `SPI_breakout/MyParts.pretty/`
 3. After schematic changes, run **Update PCB from Schematic** in KiCad before
-   placing or routing the board.
+   adjusting placement or routing.
+4. Press `B` in PCB Editor to refill copper zones if the ground pour only shows
+   as a dashed outline.
 
-## Notes and Caveats
+## Before Fabrication
 
-- `SPI_breakout/SPI_breakout.kicad_pcb` currently only contains the KiCad PCB
-  file header, so there is no routed SPI breakout layout yet.
-- `SPI_breakout/fp-lib-table` contains multiple `MyParts` entries. If KiCad
-  reports duplicate library names, clean this up before doing layout work.
-- The TXGA footprint references a 3D model with an absolute local path:
-  `/home/user/Downloads/M40S1003K6M.stp`. Move the model into the repo or update
-  the footprint if a portable 3D view is needed.
-- Generated fabrication files exist for `SensorBoard_v1.5`, but not yet for
-  `SPI_breakout`.
-
-## Suggested SPI_breakout Next Steps
-
-1. Verify the schematic pin mapping between `U1` and `U2`.
-2. Run ERC and resolve unconnected or mismatched pins.
-3. Update the PCB from the schematic.
-4. Place the 40-pin connector and microSD breakout footprint.
-5. Add board outline, mounting holes, and silkscreen labels following the
-   `SensorBoard_v1.5` style.
-6. Route SPI, power, and ground.
-7. Run DRC.
-8. Generate Gerbers and drill files when the board is ready for fabrication.
+- Verify physical fit against the RAK base board and any enclosure.
+- Confirm terminal access direction and wire service clearance.
+- Run KiCad GUI ERC/DRC.
+- Refill zones and inspect `/GND` pour clearances.
+- Generate fresh Gerbers and drill files from the final board.
