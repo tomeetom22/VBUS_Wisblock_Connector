@@ -1994,16 +1994,6 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 93.98) (xy 81.28 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3f870081-f76b-4178-bd05-9753e78ef8e0")
-	)
-	(wire
-		(pts
 			(xy 67.31 91.44) (xy 63.5 91.44)
 		)
 		(stroke
@@ -2134,16 +2124,6 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 36.83) (xy 63.5 48.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "792d7911-019a-4879-9eab-1e5d8b0a7d6b")
-	)
-	(wire
-		(pts
 			(xy 167.64 129.54) (xy 152.4 129.54)
 		)
 		(stroke
@@ -2164,16 +2144,6 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 109.22) (xy 93.98 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7caf8af7-34fc-4f04-adb4-493831f8c4b6")
-	)
-	(wire
-		(pts
 			(xy 63.5 76.2) (xy 45.72 76.2)
 		)
 		(stroke
@@ -2181,6 +2151,16 @@
 			(type default)
 		)
 		(uuid "7d29e2d8-0c47-41b7-ab6b-22d8a7936d2b")
+	)
+	(wire
+		(pts
+			(xy 111.76 109.22) (xy 111.76 119.38)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "85184409-f155-4084-b81d-c946d775285d")
 	)
 	(wire
 		(pts
@@ -2244,6 +2224,16 @@
 	)
 	(wire
 		(pts
+			(xy 116.84 109.22) (xy 111.76 109.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ae5d1180-5bb5-4554-a167-aa5a3c5d2efa")
+	)
+	(wire
+		(pts
 			(xy 95.25 53.34) (xy 81.28 53.34)
 		)
 		(stroke
@@ -2291,16 +2281,6 @@
 			(type default)
 		)
 		(uuid "b3fcb50e-daf9-471d-a914-375ece4a4fe0")
-	)
-	(wire
-		(pts
-			(xy 116.84 109.22) (xy 93.98 109.22)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b4b41cce-ccc7-4f79-9fcc-7c44451f400d")
 	)
 	(wire
 		(pts
@@ -2662,6 +2642,84 @@
 		(uuid "fb08bb59-4b7c-4071-a21e-2c521b72c376")
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 111.76 119.38 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0485c288-7cfd-43d3-af6d-0bb28f022118")
+		(property "Reference" "#PWR02"
+			(at 111.76 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 111.76 124.46 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 111.76 119.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 111.76 119.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 111.76 119.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "2a209126-e3c9-46a8-8c07-416e34fc6f03")
+		)
+		(instances
+			(project "SPI_breakout"
+				(path "/d8da890c-b85a-4ee7-8a35-6f5c92ac20f5"
+					(reference "#PWR02")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "MyParts:Screw_Terminal_01x04")
 		(at 166.37 36.83 0)
 		(unit 1)
@@ -2860,7 +2918,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_Phoenix_MC:PhoenixContact_MC_1,5_6-G-3.81_1x06_P3.81mm_Horizontal"
+		(property "Footprint" "MyParts:CONN_1984659_PXC"
 			(at 167.64 86.36 0)
 			(hide yes)
 			(show_name no)
@@ -3148,7 +3206,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_Phoenix_MC:PhoenixContact_MC_1,5_6-G-3.81_1x06_P3.81mm_Horizontal"
+		(property "Footprint" "MyParts:CONN_1984659_PXC"
 			(at 167.64 114.3 0)
 			(hide yes)
 			(show_name no)
@@ -3343,7 +3401,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_Phoenix_MC:PhoenixContact_MC_1,5_2-G-3.81_1x02_P3.81mm_Horizontal"
+		(property "Footprint" "MyParts:CONN_1935161_PXC"
 			(at 167.64 157.48 0)
 			(hide yes)
 			(show_name no)
