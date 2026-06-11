@@ -2347,16 +2347,6 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 58.42) (xy 50.8 58.42)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6963ed50-7bdb-47b1-a28a-3e3826fe3375")
-	)
-	(wire
-		(pts
 			(xy 92.71 128.27) (xy 101.6 128.27)
 		)
 		(stroke
@@ -2577,6 +2567,16 @@
 	)
 	(wire
 		(pts
+			(xy 81.28 60.96) (xy 90.17 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ba7d51c3-8f52-4f22-a169-0cd7887a51a2")
+	)
+	(wire
+		(pts
 			(xy 157.48 35.56) (xy 153.67 35.56)
 		)
 		(stroke
@@ -2772,7 +2772,7 @@
 		(uuid "16f45d35-d7ad-4dc8-8abc-dc01a599ecc7")
 	)
 	(label "OPC2_CS"
-		(at 50.8 58.42 0)
+		(at 90.17 60.96 0)
 		(effects
 			(font
 				(size 1.27 1.27)
