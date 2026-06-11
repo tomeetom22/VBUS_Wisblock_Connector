@@ -539,6 +539,228 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "MyParts:Jumper"
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "J"
+				(at 0 5.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Jumper"
+				(at 0 -5.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "01x03 Pin Jumper"
+				(at 10.922 5.334 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_locked" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "connector"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "Jumper_1_1"
+				(rectangle
+					(start 0.8636 2.667)
+					(end 0 2.413)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 0.8636 0.127)
+					(end 0 -0.127)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 0.8636 -2.413)
+					(end 0 -2.667)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 2.54) (xy 0.8636 2.54)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 0) (xy 0.8636 0)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -2.54) (xy 0.8636 -2.54)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at 5.08 2.54 180)
+					(length 3.81)
+					(name "EXT_5V"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 3.81)
+					(name "OPC_5V"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -2.54 180)
+					(length 3.81)
+					(name "VBAT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "MyParts:M40S1003K6M"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -1802,6 +2024,17 @@
 		)
 		(uuid "62b519f3-fc82-426c-8668-2ed9da98e825")
 	)
+	(text "VBAT"
+		(exclude_from_sim no)
+		(at 101.092 130.556 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(color 0 0 0 1)
+			)
+		)
+		(uuid "718e9035-35ee-4b11-ad15-8484e94ba386")
+	)
 	(text "J1/J2 pin order: 1 GND black, 2 5V_EXT red, 3 SS green, 4 SDI blue, 5 SDO white, 6 SCK yellow. Use 3.81mm 6-pos pluggable terminals such as TJ0631030000G with a matching PCB header."
 		(exclude_from_sim no)
 		(at 132.08 144.78 0)
@@ -1811,6 +2044,16 @@
 			)
 		)
 		(uuid "f1f7e85b-6104-4018-92b2-3db11a0c5953")
+	)
+	(wire
+		(pts
+			(xy 92.71 134.62) (xy 92.71 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0133a7c5-3c3d-41e4-b1e2-148475608a51")
 	)
 	(wire
 		(pts
@@ -1841,6 +2084,16 @@
 			(type default)
 		)
 		(uuid "0c450eb1-0df1-4ba6-8d5d-8e030dacdb7e")
+	)
+	(wire
+		(pts
+			(xy 81.28 134.62) (xy 92.71 134.62)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0eed97cb-fdc7-4279-9788-25b7794d4f81")
 	)
 	(wire
 		(pts
@@ -1921,6 +2174,16 @@
 			(type default)
 		)
 		(uuid "2c5b063e-5e0c-4945-91df-6b0bfc0e1a2a")
+	)
+	(wire
+		(pts
+			(xy 92.71 125.73) (xy 101.6 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2e3bf4d4-f507-4465-afe9-f5f5ac76bcd4")
 	)
 	(wire
 		(pts
@@ -2094,6 +2357,16 @@
 	)
 	(wire
 		(pts
+			(xy 92.71 128.27) (xy 101.6 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6a571fa0-7356-4b69-ae92-8181535ac952")
+	)
+	(wire
+		(pts
 			(xy 83.82 67.31) (xy 83.82 63.5)
 		)
 		(stroke
@@ -2181,6 +2454,16 @@
 			(type default)
 		)
 		(uuid "907317f4-b826-42f2-9a7f-2cb910c609c7")
+	)
+	(wire
+		(pts
+			(xy 81.28 96.52) (xy 81.28 134.62)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "924c81a1-bff1-4b56-b5aa-bdeb1eb59c9d")
 	)
 	(wire
 		(pts
@@ -2524,6 +2807,15 @@
 		)
 		(uuid "404d96ce-1f16-4eeb-a2cf-3da9904fabbb")
 	)
+	(label "OPC_5V"
+		(at 101.6 128.27 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "5dc0a9fc-ad89-4db1-8ba5-d1eb5829a590")
+	)
 	(label "OPC1_CS"
 		(at 152.4 93.98 0)
 		(effects
@@ -2560,7 +2852,7 @@
 		)
 		(uuid "97246421-b510-4990-bf03-6d6015ea6719")
 	)
-	(label "OPC_5V_EXT"
+	(label "EXT_5V"
 		(at 152.4 160.02 0)
 		(effects
 			(font
@@ -2587,7 +2879,7 @@
 		)
 		(uuid "b6300727-471b-43b4-9116-b468ff6d0567")
 	)
-	(label "OPC_5V_EXT"
+	(label "OPC_5V"
 		(at 152.4 119.38 0)
 		(effects
 			(font
@@ -2614,7 +2906,16 @@
 		)
 		(uuid "e4acdc81-8509-4744-8be9-aba1b3f30434")
 	)
-	(label "OPC_5V_EXT"
+	(label "EXT_5V"
+		(at 101.6 125.73 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "ebd0c688-6ab8-4f81-9803-ad5a5496b522")
+	)
+	(label "OPC_5V"
 		(at 152.4 91.44 0)
 		(effects
 			(font
@@ -3444,6 +3745,89 @@
 			(project "SPI_breakout"
 				(path "/d8da890c-b85a-4ee7-8a35-6f5c92ac20f5"
 					(reference "J3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "MyParts:Jumper")
+		(at 87.63 128.27 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b600dc41-bc9e-4761-9f9a-c6e628d30899")
+		(property "Reference" "J4"
+			(at 88.265 120.65 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Jumper"
+			(at 88.265 123.19 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
+			(at 87.63 128.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 87.63 128.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "01x03 Pin Jumper"
+			(at 98.552 122.936 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "58b3a60e-4539-4204-8512-a5e59c38e3ef")
+		)
+		(pin "2"
+			(uuid "7052c716-7f20-46f7-b809-f088af88446f")
+		)
+		(pin "3"
+			(uuid "3741d75f-41a9-4f90-9209-61bd963dfc29")
+		)
+		(instances
+			(project "SPI_breakout"
+				(path "/d8da890c-b85a-4ee7-8a35-6f5c92ac20f5"
+					(reference "J4")
 					(unit 1)
 				)
 			)

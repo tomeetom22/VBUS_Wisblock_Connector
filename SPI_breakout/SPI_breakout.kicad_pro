@@ -74,6 +74,14 @@
         [
           "copper_edge_clearance|151500000|117500000|970715b3-d307-48dc-ae97-cd5f77848a9f|4f4c06bc-3adb-45da-aded-02215eb35fda",
           ""
+        ],
+        [
+          "malformed_courtyard|136655998|79600000|aa021e86-7edd-43da-b7b8-792f871042cf|00000000-0000-0000-0000-000000000000",
+          ""
+        ],
+        [
+          "malformed_courtyard|151455999|79600000|9c396049-1de7-4ad9-87c7-3c42cec6a280|00000000-0000-0000-0000-000000000000",
+          ""
         ]
       ],
       "meta": {
@@ -654,7 +662,7 @@
         "uuid": "d8da890c-b85a-4ee7-8a35-6f5c92ac20f5"
       }
     ],
-    "used_designators": "",
+    "used_designators": "J4",
     "variants": []
   },
   "sheets": [
