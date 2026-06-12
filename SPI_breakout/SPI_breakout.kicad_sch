@@ -936,7 +936,7 @@
 				(pin passive line
 					(at -10.16 0 0)
 					(length 2.54)
-					(name "3v3"
+					(name "3v3_S"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -954,7 +954,7 @@
 				(pin passive line
 					(at 7.62 -2.54 0)
 					(length 2.54)
-					(name "USB+"
+					(name "NC"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -972,7 +972,7 @@
 				(pin passive line
 					(at -10.16 -2.54 0)
 					(length 2.54)
-					(name "USB-"
+					(name "NC"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1116,7 +1116,7 @@
 				(pin passive line
 					(at -10.16 -12.7 0)
 					(length 2.54)
-					(name "LED3"
+					(name "NC"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1242,7 +1242,7 @@
 				(pin passive line
 					(at 7.62 -22.86 0)
 					(length 2.54)
-					(name "BOOT0"
+					(name "NC"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3219,7 +3219,7 @@
 				)
 			)
 		)
-		(property "Footprint" "MyParts:CONN_1984659_PXC"
+		(property "Footprint" "Connector_Phoenix_MC:PhoenixContact_MC_1,5_6-G-3.81_1x06_P3.81mm_Horizontal"
 			(at 167.64 86.36 0)
 			(hide yes)
 			(show_name no)
@@ -3507,7 +3507,7 @@
 				)
 			)
 		)
-		(property "Footprint" "MyParts:CONN_1984659_PXC"
+		(property "Footprint" "Connector_Phoenix_MC:PhoenixContact_MC_1,5_6-G-3.81_1x06_P3.81mm_Horizontal"
 			(at 167.64 114.3 0)
 			(hide yes)
 			(show_name no)
@@ -3702,7 +3702,7 @@
 				)
 			)
 		)
-		(property "Footprint" "MyParts:CONN_1935161_PXC"
+		(property "Footprint" "Connector_Phoenix_MC:PhoenixContact_MC_1,5_2-G-3.81_1x02_P3.81mm_Horizontal"
 			(at 167.64 157.48 0)
 			(hide yes)
 			(show_name no)
